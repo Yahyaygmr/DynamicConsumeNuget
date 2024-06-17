@@ -11,7 +11,7 @@
 		<Company>Yahya Yagmur</Company>
 		<PackageId>DynamicConsume</PackageId>
 		<Description>Dynamic Api Consume by Yahya Yagmur</Description>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Copyright>Copyright 2024</Copyright>
 		<PackageIcon>Graphicloads-100-Flat-2-File-folder.256.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

@@ -18,10 +18,11 @@ namespace DynamicConsume
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<List<T>> GetListAsync(string link)
+        public async Task<List<T>> GetListAsync(string endpoint)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{link}");
+            var responseMessage = await client.GetAsync($"{url}{endpoint}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -30,10 +31,11 @@ namespace DynamicConsume
             }
             return new List<T>();
         }
-        public async Task<T> GetByIdAsync(string link, int id)
+        public async Task<T> GetByIdAsync(string endpoint, int id)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{link}/{id}");
+            var responseMessage = await client.GetAsync($"{url}{endpoint}/{id}");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -43,10 +45,11 @@ namespace DynamicConsume
             }
             return null;
         }
-        public async Task<List<T>> GetListByIdAsync(string link, int id)
+        public async Task<List<T>> GetListByIdAsync(string endpoint, int id)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{link}/{id}");
+            var responseMessage = await client.GetAsync($"{url}{endpoint}/{id}");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -56,41 +59,44 @@ namespace DynamicConsume
             }
             return new List<T>();
         }
-        public async Task<int> PostAsync(string link, object modelClass)
+        public async Task<int> PostAsync(string endpoint, object modelClass)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
 
             var jsonData = JsonConvert.SerializeObject(modelClass);
 
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PostAsync($"{link}", content);
+            var responseMessage = await client.PostAsync($"{url}{endpoint}", content);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return 1;
             }
             return 0;
         }
-        public async Task<int> PutAsync(string link, object modelClass)
+        public async Task<int> PutAsync(string endpoint, object modelClass)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
 
             var jsonData = JsonConvert.SerializeObject(modelClass);
 
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PutAsync($"{link}", content);
+            var responseMessage = await client.PutAsync($"{url}{endpoint}", content);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return 1;
             }
             return 0;
         }
-        public async Task<int> DeleteAsync(string link, int id)
+        public async Task<int> DeleteAsync(string endpoint, int id)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.DeleteAsync($"{link}/{id}");
+            var responseMessage = await client.DeleteAsync($"{url}{endpoint}/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return 1;
@@ -107,10 +113,11 @@ namespace DynamicConsume
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<string> GetStringAsync(string link)
+        public async Task<string> GetStringAsync(string endpoint)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{link}");
+            var responseMessage = await client.GetAsync($"{url}{endpoint}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var stringData = await responseMessage.Content.ReadAsStringAsync();
@@ -118,10 +125,11 @@ namespace DynamicConsume
             }
             return "Bir Hata Oluştu";
         }
-        public async Task<int> GetIntAsync(string link)
+        public async Task<int> GetIntAsync(string endpoint)
         {
+            var url = ApiUrl.Urls;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"{link}");
+            var responseMessage = await client.GetAsync($"{url}{endpoint}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var intData = await responseMessage.Content.ReadAsStringAsync();
