@@ -19,7 +19,7 @@ dotnet add package DynamicConsume --version 2.0.1
 After installing the package, you must first register for the service in the Program.cs file.
 
 ```sh
-builder.Services.AddDynamicConsume("api url");
+builder.Services.AddDynamicConsume("api base url");
 ```
 Afterwards, you can use it in the controller you will use by requesting it from the DI container.
 
