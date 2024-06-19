@@ -11,7 +11,7 @@ This package was prepared to eliminate the code confusion experienced when consu
 You can add the package to your project via the Nuget package manager or cli
 
 ```sh
-dotnet add package DynamicConsume --version 1.0.1
+dotnet add package DynamicConsume --version 2.0.1
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ dotnet add package DynamicConsume --version 1.0.1
 After installing the package, you must first register for the service in the Program.cs file.
 
 ```sh
-builder.Services.AddDynamicConsume("your url");
+builder.Services.AddDynamicConsume("api url");
 ```
 Afterwards, you can use it in the controller you will use by requesting it from the DI container.
 
