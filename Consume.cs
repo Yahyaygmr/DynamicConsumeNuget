@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DynamicConsume
 {
-    public class Consume<T> where T : class
+    public sealed class Consume<T> where T : class
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -105,7 +105,7 @@ namespace DynamicConsume
         }
     }
     
-    public class Consume
+    public sealed class Consume
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
