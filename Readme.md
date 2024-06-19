@@ -89,7 +89,6 @@ public class MyService
 
 ```
 
-## Development
 
 ## License
 
